@@ -1,0 +1,13 @@
+### Add a blog
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Hybanth's First Blog",
+  "author": "Hybanth",
+  "url": "https://hybanth.dev/blog",
+  "likes": 10
+}
+
+### Get all blogs
+GET http://localhost:3003/api/blogs
