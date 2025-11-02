@@ -6,6 +6,7 @@ const middleware = require('./utils/middleware')
 const blogsRouter = require('./controllers/blogs')
 
 const app = express()
+app.use(express.json())
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -13,7 +14,6 @@ mongoose.connect(config.MONGODB_URI)
   .then(() => logger.info('connected to MongoDB'))
   .catch(error => logger.error('error connecting to MongoDB:', error.message))
 
-app.use(express.json())
 app.use(middleware.requestLogger)
 
 app.use('/api/blogs', blogsRouter)
